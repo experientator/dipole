@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  web:
+    image: python:3.9-slim
+    container_name: project
+    working_dir: /project
+    volumes:
+      - .:/project
+    command: python project.py
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    container_name: db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: dipole
+    ports:
+      - "5433:5432"
