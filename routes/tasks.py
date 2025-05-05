@@ -216,7 +216,7 @@ def update_core_by_name(core_name: str,
                             detail="Данного материала не существует")
 
     setattr(core, "core_name", data.material_name)
-    setattr(core, "permittivity", data.permittivity)
+    setattr(core, "core_permittivity", data.permittivity)
     setattr(core, "core_doi", data.doi)
     setattr(core, "user_id", int(extract_user_id(token)))
     session.commit()
@@ -235,7 +235,7 @@ def update_medium_by_name(medium_name: str,
                             detail="Данного материала не существует")
 
     setattr(medium, "medium_name", data.material_name)
-    setattr(medium, "permittivity", data.permittivity)
+    setattr(medium, "core_permittivity", data.permittivity)
     setattr(medium, "medium_doi", data.doi)
     setattr(medium, "user_id", int(extract_user_id(token)))
     session.commit()
